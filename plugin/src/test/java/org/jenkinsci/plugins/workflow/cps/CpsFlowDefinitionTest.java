@@ -156,7 +156,10 @@ public class CpsFlowDefinitionTest {
         jenkins.jenkins.setSecurityRealm(jenkins.createDummySecurityRealm());
 
         MockAuthorizationStrategy mockStrategy = new MockAuthorizationStrategy();
-        mockStrategy.grant(Jenkins.READ, Item.READ, Item.EXTENDED_READ).everywhere().to("viewer");
+        mockStrategy
+                .grant(Jenkins.READ, Item.READ, Item.EXTENDED_READ)
+                .everywhere()
+                .to("viewer");
         mockStrategy.grant(Jenkins.ADMINISTER).everywhere().to("admin");
         jenkins.jenkins.setAuthorizationStrategy(mockStrategy);
 
